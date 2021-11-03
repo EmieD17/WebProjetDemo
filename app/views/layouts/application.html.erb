@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projet</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>Menu de restaurant</h1><br />
+    <% if user_signed_in? %>
+      <%= current_user.email %><br />
+      <%= link_to "Deconnection", destroy_user_session_path, method: :delete %>
+      <%= link_to "Deconnection_Direct_path", "/users/sign_out", method: :delete %>
+    <% else %>
+    Pas Co
+      <a href="/users/sign_in">Connecte toi ici</a>
+    <%end%>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <br />
+    <%= yield %>
+  </body>
+</html>
